@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #4CAF50;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.timer {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.progress-tracker {
+    margin: 20px 0;
+}
+
+.chat-room {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.breathing-exercise, .stretching-exercise, .sudoku {
+    margin: 20px 0;
+}
+
+.background-noise, .youtube-playlist, .water-tracker {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.productivity-plant, .achievements, .mini-calendar {
+    margin: 20px 0;
+}
+
+.settings {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.light-theme {
+    background-color: #f4f4f4;
+    color: #333;
+}

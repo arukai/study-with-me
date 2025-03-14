@@ -1,0 +1,24 @@
+{
+  "name": "study-with-me",
+  "version": "1.0.0",
+  "description": "A web application for productive studying with timers, progress tracking, gamification, and relaxation features.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step not defined'",
+    "test": "echo 'Test step not defined'"
+  },
+  "keywords": [
+    "study",
+    "productivity",
+    "timer",
+    "gamification",
+    "relaxation"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
