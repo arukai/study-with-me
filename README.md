@@ -31,9 +31,6 @@ npm run dev
 
 
 
-🐳 Deployment (concise)
-Егер сіз жобаны Docker арқылы іске қосқыңыз келсе:
-
 Bash
 # Docker контейнерлерін жинау және іске қосу
 docker-compose up -d --build
