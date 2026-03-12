@@ -1,1 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title or "Study Planner" }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+  <style>
+    /* небольшие правки, чтобы страница задач выглядела аккуратно */
+    .container{max-width:1100px;margin:0 auto;padding:18px;}
+    .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);border-radius:14px;padding:14px;}
+    .grid{display:grid;gap:14px;}
+    .grid-2{grid-template-columns:1.1fr 1fr;}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr;}}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    input, select, textarea{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.25);color:inherit;}
+    textarea{min-height:70px;resize:vertical;}
+    button{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.06);color:inherit;cursor:pointer;}
+    button:hover{background:rgba(255,255,255,0.10);}    
+    table{width:100%;border-collapse:collapse;}
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,0.10);vertical-align:top;}
+    .badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid rgba(255,255,255,0.16);font-size:12px;opacity:0.95;}
+    .muted{opacity:0.75;}
+    .done{opacity:0.65;text-decoration:line-through;}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+    a{color:inherit;}
+    .pill{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.14);text-decoration:none;opacity:0.9;}
+    .pill.active{background:rgba(255,255,255,0.10);opacity:1;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1 style="margin:0">Планировщик учебного времени</h1>
+      <div class="row">
+        <a class="pill {{ 'active' if view=='all' else '' }}" href="{{ url_for('tasks_view', view='all', status=status if status!='all' else None) }}">Все</a>
+        <a class="pill {{ 'active' if view=='week' else '' }}" href="{{ url_for('tasks_view', view='week', status=status if status!='all' else None) }}">Неделя</a>
+        <a class="pill {{ 'active' if view=='month' else '' }}" href="{{ url_for('tasks_view', view='month', status=status if status!='all' else None) }}">Месяц</a>
+        <span class="muted">Сегодня: {{ today }}</span>
+      </div>
+    </div>
 
+    {% block content %}{% endblock %}
+
+    <p class="muted" style="margin-top:16px">
+      API: <code>/api/tasks</code>, <code>/api/suggestions</code>
+    </p>
+  </div>
+
+  <div class="row">
+  <a class="pill" href="{{ url_for('tasks_view') }}">Задачи</a>
+  <a class="pill" href="{{ url_for('study_page') }}">Study with Me</a>
+  <a class="pill {{ 'active' if view=='all' else '' }}" href="{{ url_for('tasks_view', view='all', status=status if status!='all' else None) }}">Все</a>
+  <a class="pill {{ 'active' if view=='week' else '' }}" href="{{ url_for('tasks_view', view='week', status=status if status!='all' else None) }}">Неделя</a>
+  <a class="pill {{ 'active' if view=='month' else '' }}" href="{{ url_for('tasks_view', view='month', status=status if status!='all' else None) }}">Месяц</a>
+  <span class="muted">Сегодня: {{ today }}</span>
+</div>
+
+</body>
+</html>

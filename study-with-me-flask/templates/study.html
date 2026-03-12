@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study with Me</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        #timer-display {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        #mini-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .calendar-cell {
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .calendar-cell.studied {
+            background: #4CAF50;
+            color: white;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav {
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/study">Study</a>
+            <a href="/tasks">Tasks</a>
+        </div>
+
+        <h1>Study with Me</h1>
+
+        <section class="card">
+            <h3>Таймер Pomodoro</h3>
+            <div id="timer-display">25:00</div>
+            <div class="row">
+                <button id="start-timer">Начать</button>
+                <button id="reset-timer">Сбросить</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Трекер прогресса</h3>
+            <div id="progress-tracker">Отмечай учебные дни в мини-календаре ниже.</div>
+        </section>
+
+        <section class="card">
+            <h3>Дыхательные упражнения</h3>
+            <div id="breathing-exercise">
+                <p id="instruction-text">Нажми, чтобы начать упражнение 4-7-8</p>
+                <button id="start-breathing">Старт</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Растяжка</h3>
+            <p id="stretching-status">Нажми кнопку, чтобы начать серию упражнений.</p>
+            <button id="start-stretching">Начать растяжку</button>
+        </section>
+
+        <section class="card">
+            <h3>Вода</h3>
+            <div id="water-intake-display">Выпито: 0 мл</div>
+            <div class="row">
+                <button id="log-250ml">+250 мл</button>
+                <button id="log-500ml">+500 мл</button>
+                <button id="log-1000ml">+1000 мл</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Достижения</h3>
+            <div class="row">
+                <button id="increment-days">Добавить учебный день</button>
+                <button id="reset-days">Сбросить серию</button>
+            </div>
+            <ul id="achievement-list"></ul>
+        </section>
+
+        <section class="card">
+            <h3>Мини-календарь</h3>
+            <div id="mini-calendar"></div>
+        </section>
+
+        <section class="card">
+            <h3>Настройки темы</h3>
+            <button id="toggle-theme">Сменить тему</button>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/timer.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/breathingExercises.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/stretching.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/waterTracker.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/achievements.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/miniCalendar.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/progressTracker.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/settings.js') }}"></script>
+</body>
+</html>
